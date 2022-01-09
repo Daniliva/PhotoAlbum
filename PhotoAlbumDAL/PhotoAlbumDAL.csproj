@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\PhotoAlbum\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\PhotoAlbum\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\PhotoAlbum\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\PhotoAlbum\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,13 +56,102 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Enum\Class1.cs" />
+    <Compile Include="AlbumContext.cs" />
+    <Compile Include="Interfaces\IUserManager.cs" />
+    <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Migrations\202112302014393_CreateAplicationUser.cs" />
+    <Compile Include="Migrations\202112302014393_CreateAplicationUser.Designer.cs">
+      <DependentUpon>202112302014393_CreateAplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112302030066_CreateAplicationUser1.cs" />
+    <Compile Include="Migrations\202112302030066_CreateAplicationUser1.Designer.cs">
+      <DependentUpon>202112302030066_CreateAplicationUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112302036567_CreateAplicationUser2.cs" />
+    <Compile Include="Migrations\202112302036567_CreateAplicationUser2.Designer.cs">
+      <DependentUpon>202112302036567_CreateAplicationUser2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112302039383_CreateAplicationUser5.cs" />
+    <Compile Include="Migrations\202112302039383_CreateAplicationUser5.Designer.cs">
+      <DependentUpon>202112302039383_CreateAplicationUser5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112302112382_UpdateUser.cs" />
+    <Compile Include="Migrations\202112302112382_UpdateUser.Designer.cs">
+      <DependentUpon>202112302112382_UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201011511059_CreateClassPhotoAndPhotoUsers.cs" />
+    <Compile Include="Migrations\202201011511059_CreateClassPhotoAndPhotoUsers.Designer.cs">
+      <DependentUpon>202201011511059_CreateClassPhotoAndPhotoUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201011512159_CreateClassPhotoAndPhotoUser.cs" />
+    <Compile Include="Migrations\202201011512159_CreateClassPhotoAndPhotoUser.Designer.cs">
+      <DependentUpon>202201011512159_CreateClassPhotoAndPhotoUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201011513090_CreateClassPhotoAndPhotoUser1.cs" />
+    <Compile Include="Migrations\202201011513090_CreateClassPhotoAndPhotoUser1.Designer.cs">
+      <DependentUpon>202201011513090_CreateClassPhotoAndPhotoUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201011514465_CreateClassPhotoAndPhotoUsersFinal.cs" />
+    <Compile Include="Migrations\202201011514465_CreateClassPhotoAndPhotoUsersFinal.Designer.cs">
+      <DependentUpon>202201011514465_CreateClassPhotoAndPhotoUsersFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201051501564_UpdateDB.cs" />
+    <Compile Include="Migrations\202201051501564_UpdateDB.Designer.cs">
+      <DependentUpon>202201051501564_UpdateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\PhotoUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IdentityRoleRepository.cs" />
+    <Compile Include="Repositories\IdentityUserRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\PhotoRepository.cs" />
+    <Compile Include="Repositories\PhotoUserRepository.cs" />
+    <Compile Include="Repositories\UserRepositories.cs" />
+    <Compile Include="Repositories\UsersRepository1.cs" />
+    <Compile Include="Models\LoginInfo.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Interfaces\IUsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112302014393_CreateAplicationUser.resx">
+      <DependentUpon>202112302014393_CreateAplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112302030066_CreateAplicationUser1.resx">
+      <DependentUpon>202112302030066_CreateAplicationUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112302036567_CreateAplicationUser2.resx">
+      <DependentUpon>202112302036567_CreateAplicationUser2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112302039383_CreateAplicationUser5.resx">
+      <DependentUpon>202112302039383_CreateAplicationUser5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112302112382_UpdateUser.resx">
+      <DependentUpon>202112302112382_UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201011511059_CreateClassPhotoAndPhotoUsers.resx">
+      <DependentUpon>202201011511059_CreateClassPhotoAndPhotoUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201011512159_CreateClassPhotoAndPhotoUser.resx">
+      <DependentUpon>202201011512159_CreateClassPhotoAndPhotoUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201011513090_CreateClassPhotoAndPhotoUser1.resx">
+      <DependentUpon>202201011513090_CreateClassPhotoAndPhotoUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201011514465_CreateClassPhotoAndPhotoUsersFinal.resx">
+      <DependentUpon>202201011514465_CreateClassPhotoAndPhotoUsersFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201051501564_UpdateDB.resx">
+      <DependentUpon>202201051501564_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enum\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
